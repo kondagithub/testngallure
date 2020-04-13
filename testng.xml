@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="TestNgMavenExampleSuite" parallel="false">
+  <test name="TestNgMavenTest">
+	<groups>
+		<define name="All">
+			<include name="SMOKE" />
+			<include name="FUNCTIONAL" />
+			<include name="REGRESSION" />
+		</define>
+		<run>
+			<include name="All" />
+		</run>
+	</groups>
+    <classes>
+      <class name="context.ITestContextExample"/>
+      <class name="dataprovider.DataProviderClassExample"/>
+      <class name="dataprovider.DataProviderExample"/>
+      <class name="dependson.DependsOnMethodExample"/>
+      <class name="groups.GroupingExample"/>
+      <class name="priority.PriorityExample"/>
+      <class name="services.AuthenticationServiceTest"/>
+    </classes>
+  </test>
+</suite>
