@@ -23,7 +23,7 @@ import managers.FileReaderManager;
 import util.RestAssuredUtil;
 
 public class AuthenticationServiceTest extends BaseTest{
-	
+
 	private static final ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	
 	@Epic("TESTS")
@@ -34,12 +34,10 @@ public class AuthenticationServiceTest extends BaseTest{
 	@Test(groups = {ConstantValues.SMOKE})
 	public void authenticationServiceTest() throws IOException {
 		AuthenticationRequest authentication = FileReaderManager.getInstance().getJsonReader().getAuthenticationData();
-		Response response = RestAssuredUtil.postRequest(authentication, FileReaderManager.getInstance().getConfigReader().getAuthenticationServiceName());
+		Response response = RestAssuredUtil.postRequest(mapper, authentication, FileReaderManager.getInstance().getConfigReader().getAuthenticationServiceName());
 		String jsonResponse = response.asString();
 		Assert.assertEquals(response.getStatusCode(), ConstantValues.HTTP_STATUS_CODE_200, "Statauc code is invalid");
-		AuthenticationResponse tokenResponse = mapper.readValue(jsonResponse, AuthenticationResponse.class);
-		Assert.assertEquals(tokenResponse.getStatus(), "Success", "Authentication response returned inavlid status");
-//		mapper.writeValue(new FileOutputStream("src//test//resources//testdataresources//AuthenticationResponse.json"), tokenResponse);
-		writeDataToAllureReport("Response", "application/json", jsonResponse);
+		AuthenticationResponse authenticationResponse = mapper.readValue(jsonResponse, AuthenticationResponse.class);
+		Assert.assertEquals(authenticationResponse.getStatus(), "Success", "Authentication response returned inavlid status");
 	}
 }
