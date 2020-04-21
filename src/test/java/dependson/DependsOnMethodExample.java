@@ -18,7 +18,7 @@ public class DependsOnMethodExample extends BaseTest{
 	@Story("DependsOnMethodExample")
 	@TmsLink("Test-1234")
 	@Severity(SeverityLevel.MINOR)
-	@Test(groups = { ConstantValues.SMOKE })
+	@Test(groups = { ConstantValues.SMOKE }, dependsOnMethods = { "secondMethod" })
 	public void firstMethod() {
 		writeDataToAllureReport("DependsOnMethodExample#firstMethod","firstMethod will execute first");
 	}
@@ -28,7 +28,7 @@ public class DependsOnMethodExample extends BaseTest{
 	@Story("DependsOnMethodExample")
 	@TmsLink("Test-1234")
 	@Severity(SeverityLevel.MINOR)
-	@Test(groups = { ConstantValues.SMOKE }, dependsOnMethods = { "firstMethod" })
+	@Test(groups = { ConstantValues.SMOKE }, dependsOnMethods = { "thirdMethod" })
 	public void secondMethod() {
 		writeDataToAllureReport("DependsOnMethodExample#secondMethod","secondMethod will execute second");
 	}
@@ -38,7 +38,7 @@ public class DependsOnMethodExample extends BaseTest{
 	@Story("DependsOnMethodExample")
 	@TmsLink("Test-1234")
 	@Severity(SeverityLevel.MINOR)
-	@Test(groups = { ConstantValues.SMOKE }, dependsOnMethods = { "secondMethod" })
+	@Test(groups = { ConstantValues.SMOKE })
 	public void thirdMethod() {
 		writeDataToAllureReport("DependsOnMethodExample#thirdMethod","thirdMethod will execute third");
 	}

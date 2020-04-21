@@ -15,7 +15,7 @@ import org.testng.annotations.BeforeTest;
 import common.ConstantValues;
 import io.qameta.allure.Allure;
 
-public class BaseTest {
+public class BaseTest{
 	
 	@BeforeMethod(groups = { ConstantValues.SMOKE })
 	public void beforeMethod() {
@@ -69,6 +69,6 @@ public class BaseTest {
 	public void writeDataToAllureReport(String name, InputStream content) {
 		Allure.addAttachment(name, content);
 	}
-	
+
 	
 }

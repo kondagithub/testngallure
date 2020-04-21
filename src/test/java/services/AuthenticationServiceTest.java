@@ -33,7 +33,7 @@ public class AuthenticationServiceTest extends BaseTest{
 	@Severity(SeverityLevel.BLOCKER)
 	@Test(groups = {ConstantValues.SMOKE})
 	public void authenticationServiceTest() throws IOException {
-		AuthenticationRequest authentication = FileReaderManager.getInstance().getJsonReader().getAuthenticationData();
+		AuthenticationRequest authentication = FileReaderManager.getInstance().getJsonReader().getAuthenticationData(mapper);
 		Response response = RestAssuredUtil.postRequest(mapper, authentication, FileReaderManager.getInstance().getConfigReader().getAuthenticationServiceName());
 		String jsonResponse = response.asString();
 		Assert.assertEquals(response.getStatusCode(), ConstantValues.HTTP_STATUS_CODE_200, "Statauc code is invalid");
