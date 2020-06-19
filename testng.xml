@@ -18,7 +18,9 @@
       <class name="dependson.DependsOnMethodExample"/>
       <class name="groups.GroupingExample"/>
       <class name="priority.PriorityExample"/>
-      <class name="services.AuthenticationServiceTest"/>
     </classes>
+    <packages>
+         <package name="services"/>
+    </packages>
   </test>
 </suite>

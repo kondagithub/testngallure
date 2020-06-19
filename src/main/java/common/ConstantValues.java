@@ -8,6 +8,7 @@ public class ConstantValues {
 	public static final String CONTENT_TYPE = "Content-Type";
 	public static final String APPLICATION_JSON = "application/json";
 	public static final int HTTP_STATUS_CODE_200 = 200;
+	public static final int HTTP_STATUS_CODE_404 = 404;
 	public static final String REQUEST = "Request";
 	public static final String RESPONSE = "Response";
 }

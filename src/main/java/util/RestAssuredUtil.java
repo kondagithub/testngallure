@@ -23,4 +23,12 @@ public class RestAssuredUtil {
         GeneralUtil.writeDataToAllureReport(mapper, ConstantValues.RESPONSE, responseObject);
 		return response;
 	}
+	
+	public static Response getRequest(String serviceName) {
+		RestAssured.baseURI = "http://bpdts-test-app-v2.herokuapp.com/"+serviceName;
+		RequestSpecification request = RestAssured.given();
+		request.header(ConstantValues.CONTENT_TYPE, ConstantValues.APPLICATION_JSON);
+		Response response = request.get();
+		return response;
+	}
 }
